@@ -1,9 +1,10 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import useWindowDimensions from '../hooks/useWindowsDimensions';
 import { LogoBlock } from '../components/LogoBlock';
 import Weyinmi from '../assets/weyinmi.jpeg';
 import { CiMail } from 'react-icons/ci';
 import { AiOutlineLinkedin } from 'react-icons/ai';
+import { useLocation } from 'react-router-dom';
 import '../App.css';
 
 const SocialsBlock = () => {
@@ -62,6 +63,8 @@ export const AboutScreen = () => {
     const weyinmiPhotoRef = useRef(0);
     const textBoxRef = useRef(0);
 
+    const location = useLocation();
+
     const decideIfRenderSocialsUnderPicture = () => {
         if (
             textBoxRef.current?.clientHeight >
@@ -75,12 +78,6 @@ export const AboutScreen = () => {
     };
 
     useEffect(() => {
-        console.log('offSetTop', weyinmiPhotoRef.current?.offsetTop);
-        console.log(
-            'height',
-            weyinmiPhotoRef.current?.clientHeight,
-            textBoxHeight.current?.clientHeight
-        );
         setSocialsPosition(
             weyinmiPhotoRef.current?.offsetTop +
                 weyinmiPhotoRef.current?.clientHeight -
@@ -88,7 +85,7 @@ export const AboutScreen = () => {
         );
 
         setRenderSocialsUnderPicture(decideIfRenderSocialsUnderPicture());
-    }, []);
+    }, [location]);
 
     return (
         <div className='aboutBody' style={{ width: width, height: height }}>

@@ -8,12 +8,15 @@ import {
     Route,
     RouterProvider,
     Routes,
+    useLocation,
 } from 'react-router-dom';
 import { HomeScreen } from './screens/HomeScreen';
 
 import { AboutScreen } from './screens/AboutScreen';
 
 import { BridgeBannerScreen } from './screens/BridgeBannerScreen';
+
+
 
 function App() {
     return (

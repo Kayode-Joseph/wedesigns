@@ -2,7 +2,7 @@ import header from '../assets/header.png';
 import ReactDOM from 'react-dom/client';
 import weyLogo from '../assets/wey-logo.png';
 import useWindowDimensions from '../hooks/useWindowsDimensions';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { LogoBlock } from '../components/LogoBlock';
 import nokOutBanner from '../assets/nok-out-banner.png';
@@ -115,7 +115,12 @@ export const HomeScreen = () => {
                         }
                     />
                     <div style={{ padding: height * 0.03 }} />
-                    <Banner image={landingPageBanner} link={'/banner/bridge'} />
+                    <Link
+                        to={'/banner/bridge'}
+                        style={{ textDecoration: 'none', color: 'black' }}
+                    >
+                        <Banner image={landingPageBanner} />
+                    </Link>
                     <div style={{ padding: height * 0.03 }} />
                 </div>
             </div>

@@ -2,8 +2,11 @@ import useWindowDimensions from '../hooks/useWindowsDimensions';
 
 import bridgeBannerPage from '../assets/bridgeBannerPage.png';
 
+import { useEffect } from 'react';
+
 export const BridgeBannerScreen = () => {
     const { width, height } = useWindowDimensions();
+
 
     return (
         <div
